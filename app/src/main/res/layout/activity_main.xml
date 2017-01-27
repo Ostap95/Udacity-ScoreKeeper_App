@@ -88,7 +88,7 @@
         android:text="@string/two_points"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/plus3PointB"
+        android:id="@+id/plus2PointB"
         app:layout_constraintBottom_toTopOf="@+id/plus1PointB"
         android:layout_marginBottom="16dp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
@@ -162,7 +162,7 @@
         android:text="@string/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
+        android:id="@+id/scoreTeamB"
         android:textSize="70sp"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -181,7 +181,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/plus3PointB"
+        app:layout_constraintBottom_toTopOf="@+id/plus2PointB"
         android:layout_marginBottom="16dp" />
 
 </android.support.constraint.ConstraintLayout>
