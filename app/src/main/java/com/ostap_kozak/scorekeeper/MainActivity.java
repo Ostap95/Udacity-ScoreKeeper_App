@@ -5,11 +5,17 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Scroller;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,19 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView teamAScoreTextView;
     private TextView teamBScoreTextView;
 
-    private Button plus3PointButtonA;
-    private Button plus2PointButtonA;
-    private Button plus1PointButtonA;
+    private ArrayList<String> scoreHistory = new ArrayList<>();
 
-    private Button plus3PointButtonB;
-    private Button plus2PointButtonB;
-    private Button plus1PointButtonB;
-
-    private Button undoButton;
-    private Button viewHistoryButton;
-    private Button resetScoreButton;
-
-    private List scoreHistory = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +44,6 @@ public class MainActivity extends AppCompatActivity {
         teamAScoreTextView = (TextView) findViewById(R.id.scoreTeamA);
         teamBScoreTextView = (TextView) findViewById(R.id.scoreTeamB);
 
-        plus1PointButtonA = (Button) findViewById(R.id.plus1PointA);
-        plus2PointButtonA = (Button) findViewById(R.id.plus2PointA);
-        plus3PointButtonA = (Button) findViewById(R.id.plus3PointA);
-
-        plus1PointButtonB = (Button) findViewById(R.id.plus1PointB);
-        plus2PointButtonB = (Button) findViewById(R.id.plus2PointB);
-        plus3PointButtonB = (Button) findViewById(R.id.plus3PointB);
-
-        undoButton = (Button) findViewById(R.id.undoButton);
-        viewHistoryButton = (Button) findViewById(R.id.historyButton);
-        resetScoreButton = (Button) findViewById(R.id.resetButton);
-
         // Initial initializations
         //undoButton.setClickable(false);
 
@@ -70,48 +53,70 @@ public class MainActivity extends AppCompatActivity {
     public void add3PointsA(View view) {
         teamAScore += 3;
         updateScore(teamAScore, teamAScoreTextView);
-        scoreHistory.add("A:3");
+        scoreHistory.add(teamAName.getText().toString() + " +3");
     }
 
     public void add2PointsA(View view) {
         teamAScore += 2;
         updateScore(teamAScore, teamAScoreTextView);
-        scoreHistory.add("A:2");
+        scoreHistory.add(teamAName.getText().toString() + " +2");
     }
 
     public void add1PointsA(View view) {
         updateScore(++teamAScore, teamAScoreTextView);
-        scoreHistory.add("A:1");
+        scoreHistory.add(teamAName.getText().toString() + " +1");
     }
 
 
     public void add3PointsB(View view) {
         teamBScore += 3;
         updateScore(teamBScore, teamBScoreTextView);
-        scoreHistory.add("B:3");
+        scoreHistory.add(teamBName.getText().toString() + " +3");
     }
 
     public void add2PointsB(View view) {
         teamBScore += 2;
         updateScore(teamBScore, teamBScoreTextView);
-        scoreHistory.add("B:2");
+        scoreHistory.add(teamBName.getText().toString() + " +2");
     }
 
     public void add1PointsB(View view) {
         updateScore(++teamBScore, teamBScoreTextView);
-        scoreHistory.add("B:1");
+        scoreHistory.add(teamBName.getText().toString() + " +1");
     }
 
 
     public void showHistory(View view) {
+        // Creates custom TextView that will contain history data inside AlertDialog
+        TextView textView = new TextView(this);
+        textView.setPadding(16,16,16,16);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        textView.setGravity(Gravity.CENTER);
+        textView.setMovementMethod(new ScrollingMovementMethod()); // Makes textView scrollable
+
+        StringBuilder historyLOG = new StringBuilder();
+
+        for (String item: scoreHistory) {
+            historyLOG.append(item + "\n");
+        }
+
+        textView.setText(historyLOG);
+        new AlertDialog.Builder(this)
+                .setTitle("Game History")
+                .setView(textView)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
 
     }
 
     public void undoScore(View view) {
         if (!scoreHistory.isEmpty()) {
-            String removedElement = (String)scoreHistory.remove(scoreHistory.size()-1);
+            String removedElement = scoreHistory.remove(scoreHistory.size()-1);
             int value = Integer.parseInt(removedElement.replaceAll("[^0-9]", ""));
-            if (removedElement.contains("A")) {
+            if (removedElement.contains(teamAName.getText().toString())) {
                 teamAScore -= value;
                 updateScore(teamAScore, teamAScoreTextView);
             } else {
@@ -138,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                         // do nothing
                     }
                 }).show();
+        scoreHistory.clear(); // Clears History log
     }
 
     public void updateScore(int score, TextView scoreView) {
