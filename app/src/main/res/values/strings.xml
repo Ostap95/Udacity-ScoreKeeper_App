@@ -2,9 +2,11 @@
     <string name="app_name">ScoreKeeper</string>
     <string name="one_point">+1 Point</string>
     <string name="two_points">+2 Points</string>
-    <string name="tree_points">+3 Point</string>
+    <string name="tree_points">+3 Points</string>
     <string name="view_history">View History</string>
     <string name="undo_point">Undo</string>
     <string name="reset_score">Reset</string>
     <string name="score">0</string>
+    <string name="teamAName">Team A</string>
+    <string name="teamBName">Team B</string>
 </resources>

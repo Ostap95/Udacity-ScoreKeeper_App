@@ -44,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
         teamAScoreTextView = (TextView) findViewById(R.id.scoreTeamA);
         teamBScoreTextView = (TextView) findViewById(R.id.scoreTeamB);
 
-        // Initial initializations
-        //undoButton.setClickable(false);
-
     }
 
 
