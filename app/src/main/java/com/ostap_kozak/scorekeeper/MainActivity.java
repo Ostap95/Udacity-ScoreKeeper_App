@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).show();
 
+
     }
 
     public void undoScore(View view) {
