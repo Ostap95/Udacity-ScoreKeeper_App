@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView.setText(historyLOG);
         new AlertDialog.Builder(this)
-                .setTitle("Game History")
+                .setTitle(getString(R.string.game_history_dialog_title))
                 .setView(textView)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -125,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void resetScore(View view) {
         new AlertDialog.Builder(this)
-                .setTitle("Reset Score")
-                .setMessage("Are you sure?")
+                .setTitle(getString(R.string.reset_score_dialog_title))
+                .setMessage(getString(R.string.reset_score_dialog_message))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         teamAScore = 0;
@@ -149,9 +149,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeTeamAName(View view) {
         final EditText teamNameEditText = new EditText(this);
-        teamNameEditText.setHint("Team Name");
+        teamNameEditText.setHint(getString(R.string.team_name_dialog_textEdit_hint));
         new AlertDialog.Builder(this)
-                .setTitle("Name for Team A")
+                .setTitle(getString(R.string.teamA_name_dialog_title))
                 .setView(teamNameEditText)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -169,9 +169,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeTeamBName(View view) {
         final EditText teamNameEditText = new EditText(this);
-        teamNameEditText.setHint("Team Name");
+        teamNameEditText.setHint(getString(R.string.team_name_dialog_textEdit_hint));
         new AlertDialog.Builder(this)
-                .setTitle("Name for Team B")
+                .setTitle(getString(R.string.teamB_name_dialog_title))
                 .setView(teamNameEditText)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

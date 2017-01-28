@@ -9,4 +9,10 @@
     <string name="score">0</string>
     <string name="teamAName">Team A</string>
     <string name="teamBName">Team B</string>
+    <string name="game_history_dialog_title">Game History</string>
+    <string name="reset_score_dialog_title">Reset Score</string>
+    <string name="reset_score_dialog_message">Are you sure?</string>
+    <string name="team_name_dialog_textEdit_hint">Team Name</string>
+    <string name="teamA_name_dialog_title">Name for Team A</string>
+    <string name="teamB_name_dialog_title">Name for Team B</string>
 </resources>
