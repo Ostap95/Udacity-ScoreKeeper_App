@@ -20,8 +20,9 @@
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.54"
-        android:textSize="24sp" />
+        app:layout_constraintHorizontal_bias="0.57"
+        android:textSize="24sp"
+        android:onClick="changeTeamAName"/>
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5078125"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="209dp" />
+        tools:layout_editor_absoluteX="195dp" />
 
     <TextView
         android:text="Team B"
@@ -44,7 +45,10 @@
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.43"
-        android:layout_marginStart="8dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:onClick="changeTeamBName"/>
 
     <Button
         android:layout_width="0dp"
@@ -57,7 +61,10 @@
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/plus2PointA"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="add3PointsA"/>
 
     <Button
         android:text="@string/two_points"
@@ -69,7 +76,10 @@
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/plus1PointA"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="add2PointsA"/>
 
     <Button
         android:text="@string/one_point"
@@ -82,7 +92,26 @@
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/undoButton"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="add1PointsA"/>
+
+    <Button
+        android:text="@string/tree_points"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/plus3PointB"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline2"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintBottom_toTopOf="@+id/plus2PointB"
+        android:layout_marginBottom="16dp"
+        android:onClick="add3PointsB"/>
 
     <Button
         android:text="@string/two_points"
@@ -94,7 +123,10 @@
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="16dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="add2PointsB"/>
 
     <Button
         android:text="@string/one_point"
@@ -106,7 +138,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="add1PointsB"/>
 
     <Button
         android:text="@string/view_history"
@@ -115,13 +150,14 @@
         android:id="@+id/historyButton"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="16dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:layout_marginStart="8dp"
         app:layout_constraintLeft_toRightOf="@+id/undoButton"
         android:layout_marginLeft="8dp"
         app:layout_constraintRight_toLeftOf="@+id/resetButton"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp" />
+        android:layout_marginRight="8dp"
+        android:onClick="showHistory"/>
 
     <Button
         android:text="@string/undo_point"
@@ -131,7 +167,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:onClick="undoScore"/>
 
     <Button
         android:text="@string/reset_score"
@@ -141,7 +179,9 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="resetScore"/>
 
     <TextView
         android:text="@string/score"
@@ -156,7 +196,9 @@
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp" />
 
     <TextView
         android:text="@string/score"
@@ -169,19 +211,10 @@
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/teamBName"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/plus3PointB"
         android:layout_marginBottom="8dp" />
 
-    <Button
-        android:text="@string/tree_points"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/button10"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline2"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/plus2PointB"
-        android:layout_marginBottom="16dp" />
+
 
 </android.support.constraint.ConstraintLayout>
